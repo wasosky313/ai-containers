@@ -1,6 +1,6 @@
 **[Português](README.pt.md) | [English](README.en.md) | [Español](README.es.md)**
 
-# ai-containers
+# Rodar AI localmente com containers
 
 Rode um modelo de IA (LLM) local, com uma interface de chat tipo ChatGPT, usando só Docker. Sem mandar nada pra nuvem, sem custo de API.
 
