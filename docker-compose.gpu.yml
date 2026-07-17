@@ -1,0 +1,4 @@
+services:
+  llama-server:
+    devices:
+      - /dev/dri:/dev/dri
