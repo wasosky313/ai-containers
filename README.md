@@ -4,6 +4,18 @@ Rode um modelo de IA (LLM) local, com uma interface de chat tipo ChatGPT, usando
 
 Funciona em **Linux, Windows e Mac**. Por padrão roda na CPU (funciona em qualquer máquina); em Linux com GPU Intel ou AMD dá pra acelerar via Vulkan.
 
+## Qual modelo rodar
+
+| Sua GPU | Modelo | Download |
+|---|---|---|
+| Sem GPU (só CPU) | Qwen2.5 3B | ~2,1 GB |
+| 4-6 GB de VRAM | Qwen2.5 3B | ~2,1 GB |
+| 8 GB de VRAM | Qwen2.5 7B | ~4,7 GB |
+| 12 GB de VRAM | Qwen2.5 14B | ~9 GB |
+| 24 GB+ de VRAM | Qwen2.5 32B | ~20 GB |
+
+Esses valores são só o tamanho do modelo — a placa também precisa de uma margem extra de VRAM pra manter a conversa (contexto). Na dúvida, escolha o modelo de baixo na tabela. O `start.sh` (próxima seção) já pergunta isso e monta tudo certo.
+
 ## Pré-requisitos
 
 - **Docker** instalado e rodando.
