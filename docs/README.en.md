@@ -1,6 +1,6 @@
 **[Português](README.pt.md) | [English](README.en.md) | [Español](README.es.md)**
 
-# ai-containers
+# Run AI locally with containers
 
 Run a local AI model (LLM) with a ChatGPT-like chat interface, using only Docker. Nothing sent to the cloud, no API costs.
 

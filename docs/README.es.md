@@ -1,6 +1,6 @@
 **[Português](README.pt.md) | [English](README.en.md) | [Español](README.es.md)**
 
-# ai-containers
+# Ejecutar AI localmente con containers
 
 Ejecuta un modelo de IA (LLM) local, con una interfaz de chat tipo ChatGPT, usando solo Docker. Sin enviar nada a la nube, sin costo de API.
 
