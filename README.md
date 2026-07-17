@@ -1,4 +1,6 @@
-# Rodar AI localmente com containers / Run AI locally with containers / Ejecutar AI localmente con containers
+# Rodar AI localmente com containers
+# Run AI locally with containers
+# Ejecutar AI localmente con containers
 
 Escolha seu idioma / Choose your language / Elige tu idioma:
 
