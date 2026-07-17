@@ -19,34 +19,44 @@ Funciona em **Linux, Windows e Mac**. Por padrão roda na CPU (funciona em qualq
    cd ai-containers
    ```
 
-2. Suba os containers:
+2. Se for usar GPU Intel ou AMD no Linux, instale os drivers Vulkan primeiro (Ubuntu/Debian):
+   ```bash
+   sudo apt install -y mesa-vulkan-drivers vulkan-tools libvulkan1
+   ```
 
-   - **Sem GPU** (Windows, Mac, ou Linux sem GPU dedicada):
-     ```bash
-     docker compose up -d
-     ```
-   - **Com GPU** (Linux com GPU Intel ou AMD): instale os drivers Vulkan primeiro (Ubuntu/Debian):
-     ```bash
-     sudo apt install -y mesa-vulkan-drivers vulkan-tools libvulkan1
-     ```
-     E suba os containers com o arquivo extra de GPU:
-     ```bash
-     docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d
-     ```
+3. Rode o script de setup — ele pergunta qual modelo você quer e se tem GPU, e já sobe tudo:
+   ```bash
+   ./start.sh
+   ```
+   (Windows: rode pelo Git Bash ou WSL, que já vêm junto com o Docker Desktop.)
 
-3. Aguarde o download do modelo (primeira vez só, ~5GB). Acompanhe com:
+4. Aguarde o download do modelo (primeira vez só). Acompanhe com:
    ```bash
    docker compose logs -f llama-server
    ```
    Quando aparecer `model loaded` e `listening on http://0.0.0.0:8080`, está pronto.
 
-4. Abra `http://localhost:3000` no navegador, crie sua conta local (a primeira conta criada vira admin) e comece a conversar. O modelo já aparece disponível pra seleção.
+5. Abra `http://localhost:3000` no navegador, crie sua conta local (a primeira conta criada vira admin) e comece a conversar. O modelo já aparece disponível pra seleção.
 
 Pronto — sem chave de API, sem conta em serviço nenhum, tudo roda na sua máquina.
 
-> Rodou sem GPU primeiro e quer ativar depois? Só rodar o comando "Com GPU" acima de novo — ele recria o container sem baixar o modelo de novo.
-
 > NVIDIA no Linux ou GPU no Windows/WSL2 não estão configurados aqui — dá pra rodar, mas exige um override de compose diferente (nvidia-container-toolkit). Fora do escopo deste repo por enquanto.
+
+<details>
+<summary>Quer rodar sem o script, na mão?</summary>
+
+Defina `LLAMA_MODEL` no `.env` primeiro (veja [Trocar de modelo](#trocar-de-modelo)), depois:
+
+- Sem GPU:
+  ```bash
+  docker compose up -d
+  ```
+- Com GPU:
+  ```bash
+  docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d
+  ```
+
+</details>
 
 ## Como verificar se está usando a GPU
 
@@ -66,7 +76,9 @@ Pronto — sem chave de API, sem conta em serviço nenhum, tudo roda na sua máq
 
 ## Trocar de modelo
 
-Edite (ou crie) um arquivo `.env` a partir do `.env.example`:
+Mais fácil: rode `./start.sh` de novo e escolha outro modelo na lista.
+
+Na mão: edite (ou crie) um arquivo `.env` a partir do `.env.example`:
 
 ```bash
 cp .env.example .env
